@@ -1,0 +1,32 @@
+{
+  "name": "google-books",
+  "version": "1.0.0",
+  "description": "React app that uses Google Books to search for and save books to a mondoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon run server --ignore 'client/*'\" \"npm run client\"",
+    "seed": "node scripts/seedDB.js",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "author": "Isaiah Kelly",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^3.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.10.0",
+    "serve": "^11.3.2"
+  }
+}
